@@ -11,9 +11,14 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'proxima-nova';
+    src: url(fonts/proxima_nova_reg/proxima_nova_reg.ttf);
+}
+
 body {
     margin: 0;
-    padding-top: 1em;
+
     height: 100%;
     line-height: 1.75;
     background: #D3AF37;
@@ -24,7 +29,12 @@ body {
 }
 
 /*==========INTRO SECTION==========*/
-#hero-banner {
+.hero-banner {
+    background: linear-gradient(to left, rgb(0,0,0,5), rgb(0,0,0,0.5), transparent 8%),
+                linear-gradient(to right, rgb(0,0,0,5), rgb(0,0,0,0.5), transparent 5%),
+                linear-gradient(to top, rgb(0,0,0,1.5), rgb(0,0,0,0.5), transparent 60%),
+                linear-gradient(to bottom, rgb(0,0,0,5), rgb(0,0,0,0.5), transparent 35%), 
+                url(/images/mcu-bg-gray.jpg);    
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -36,10 +46,11 @@ body {
     margin-bottom: 0.7em;
 }
 
-#hero-text {
+#hero-title-box {
     text-align: center;    
     font-size: 1rem;
     font-weight: 500;
+
 }
 
 #hero-title {
@@ -75,12 +86,10 @@ a {
 /*==========TIMELINE==========*/
 .timeline-container {
     display: flex;
-    background-color: #000;
-    padding-bottom: 5em;  
+    background-color: #031625;  
 }
 
 .tl-item {
-    transform: translate3d(0, 0, 0);
     position: relative;
     width: 20%;
     height: 100vh;
@@ -88,44 +97,22 @@ a {
     transition: width 0.5s ease;
 }
 
-.tl-item::before, .tl-item::after {
-    transform: translate3d(0, 0, 0);
-    content: '';
-    position: absolute;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-}
-
-.tl-item::after {
-    background: transparentize(#031625, 0.15);
-    opacity: 1;
-    transition: opacity 0.5s ease;
-}
-
-.tl-item::before {
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 75%);
-    z-index: 1;
-    opacity: 0;
-    transform: translate3d(0, 0, 0) translateY(50%);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
 .tl-item:hover {
     width: 55%;
 }
 
-.tl-item::after {
-    opacity: 0;
+.tl-bg {
+    position: absolute;
+    width: 100%; height: 100%;
+    top: 0; left: 0;
+    background-size: cover;
+    background-position: center;
 }
 
 .movie-title {
-    transform: translate3d(0, 0, 0) translateY(25px);
     position: absolute;
-    z-index: 1;
     text-align: center;
-    margin: 0 1.618em;
     top: 55%;
-    opacity: 0;
 }
 
 .movie-info {
@@ -137,16 +124,33 @@ a {
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    z-index: 2;
-    border-top: 5px solid #1779cf;
-    border-bottom: 5px solid #1779cf;
+    border-top: 0.15em solid #1779cf;
+    border-bottom: 0.15em solid #1779cf;
 }
 
-.tl-bg {
-    transform: translate3d(0, 0, 0);
-    position: absolute;
-    width: 100%; height: 100%;
-    top: 0; left: 0;
-    background-size:cover;
-    background-position: center center;
-  }
+/*==========FOOTER==========*/
+footer {
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    padding: 4em 0 4em 0;
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;           
+    background: #031625;
+}
+
+#name {
+    color: #fff;
+    font-weight: 600;
+    font-size: large;
+    letter-spacing: 0.2em;
+}
+
+#copyright {
+    font-size: small;
+    font-style: italic;
+    color: #8E9599;
+
+}
+

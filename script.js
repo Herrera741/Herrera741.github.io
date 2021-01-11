@@ -1,3 +1,5 @@
+window.addEventListener("DOMContentLoaded", getSeqOrder);
+
 // current list of movies in chronological order by default 
 let MOVIES = [
     {chronNum: 0, year: "2011", title: "Captain America: The First Avenger", path: "/images/cap-america-bg.jpg"},
@@ -6,7 +8,7 @@ let MOVIES = [
     {chronNum: 3, year: "2013", title: "Iron Man 3", path: "/images/iron-man-3-bg.jpg"},
     {chronNum: 4, year: "2014", title: "Guardians of the Galaxy", path: "/images/gotg-bg.jpg"},
     {chronNum: 5, year: "2016", title: "Doctor Strange", path: "/images/doc-strange-bg.jpg"},
-    {chronNum: 6, year: "2017", title: "Spider-Man: Homecoming", path: "/images/spiderman-bg-v2.jpg"},
+    {chronNum: 6, year: "2017", title: "Spider-Man: Homecoming", path: "/images/spiderman-bg.jpg"},
     {chronNum: 7, year: "2018", title: "Black Panther", path: "/images/black-panther-bg.jpg"},
     {chronNum: 8, year: "2018", title: "Ant-Man and The Wasp", path: "/images/antman-wasp-bg.jpg"},
     {chronNum: 9, year: "2019", title: "Avengers: Endgame", path: "/images/avengers-endgame-bg.jpg"}
