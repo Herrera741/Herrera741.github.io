@@ -1,11 +1,5 @@
 /*==========FONTS==========*/
 @font-face {
-    font-family: 'marvel-font';
-    src: url(fonts/marvel-font/Marvel-Regular.ttf);
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'pathway-gothic-one';
     src: url(fonts/Pathway_Gothic_One/PathwayGothicOne-Regular.ttf);
     font-style: normal;
@@ -16,85 +10,143 @@
     src: url(fonts/proxima_nova_reg/proxima_nova_reg.ttf);
 }
 
+@font-face {
+    font-family: 'marvel';
+    src: url(fonts/marvel/Marvel-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'avengeance-heroic';
+    src: url(fonts/avengeance-heroic-avenger/AVENGEANCE\ HEROIC\ AVENGER.ttf);
+}
+
 body {
     margin: 0;
-
+    width: 100%;
     height: 100%;
-    line-height: 1.75;
     background: #D3AF37;
 }
 
-#primary-container {
+#body-container {
+    margin-top: 0.5%;
     background-color: #664EAE;
 }
 
 /*==========INTRO SECTION==========*/
-.hero-banner {
-    background: linear-gradient(to left, rgb(0,0,0,5), rgb(0,0,0,0.5), transparent 8%),
-                linear-gradient(to right, rgb(0,0,0,5), rgb(0,0,0,0.5), transparent 5%),
-                linear-gradient(to top, rgb(0,0,0,1.5), rgb(0,0,0,0.5), transparent 60%),
-                linear-gradient(to bottom, rgb(0,0,0,5), rgb(0,0,0,0.5), transparent 35%), 
+.header-container {
+    background: linear-gradient(to left, rgb(0,0,0,4), rgb(0,0,0,0.5), transparent 10%),
+                linear-gradient(to right, rgb(0,0,0,4), rgb(0,0,0,0.5), transparent 10%),
+                linear-gradient(to top, rgb(0,0,0,1.2), rgb(0,0,0,0.2), transparent 60%),
+                linear-gradient(to bottom, rgb(0,0,0,4), rgb(0,0,0,0.5), transparent 35%), 
                 url(/images/mcu-bg-gray.jpg);    
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    margin-bottom: 0.4em;
+}
+
+#flex-container {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 0.7em;
-}
-
-#hero-title-box {
-    text-align: center;    
-    font-size: 1rem;
-    font-weight: 500;
-
-}
-
-#hero-title {
-    background-color: #F0131E;
+    justify-content: space-between;
     color: #fff;
-    font-size: 2em;
-    font-weight: bolder;
-    margin-top: 2.3em;
-    padding: 0 1.5em;
-    /*mix-blend-mode: darken;*/
+    border: 0.3em solid yellow;
 }
 
-h2 {
-    margin-top: -1em;
+.title-container {
+    display: flex;
+    width: 40%;
+    height: 10em;
+    padding: 0;
+    margin: 2.5em 0 1.5em 0;
+    flex-direction: row;
+    border: 0.3em solid blueviolet;
 }
 
-a {
-    margin: 0 0.3em;
+#left-item {
+    width: 55%;
+    text-align: center;
+    padding: 0 0.2em 0 0.2em;
+    background-color: rgb(240,19,30,0.77);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: marvel;
+    font-size: 10em;
+    border: 0.04em solid aquamarine;
 }
 
-#seq-btn, #chron-btn, #alpha-btn {
+#right-item {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.2em 0 0;
+    width: 45%;
+    text-align: center;
+    font-size: 2.5em;
+    font-family: avengeance-heroic;
+    background-color: rgb(0,0,0,0.77);
+    border: 0.2em solid green;
+}
+
+#top-right-top, #top-right-middle {
+    margin-bottom: -0.1em;
+}
+
+#top-right-top::after, #top-right-middle::after, #top-right-bottom::after {
+    visibility: hidden;
+    margin: 0;
+}
+
+.flex-buttons {
+    display: flex;
+    flex-direction: row;
+    border: 0.3em solid green;
+}
+
+.flex-buttons {
+    width: 30%;
+    text-align: center;
+    margin-bottom: 0.7em;
+    justify-content: space-between;
+    border: 0.3em solid coral;
+}
+
+#year-btn, #chron-btn, #title-btn {
+    width: 32%;
+    line-height: 1.8;
+    font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
     color: #fff;
-    font-size: medium;
+    font-size: 1.1em;
     background: #1779cf;
-    padding: 0.8em 2em;
     border-radius: 0.5em;
-    margin-bottom: 1em;
-    display: inline-block;
     outline: none;
 }
 
 /*==========TIMELINE==========*/
 .timeline-container {
     display: flex;
-    background-color: #031625;  
+    flex-direction: row;
+    height: 85vh;
+    background-color: #031625;
+    border: 0.4em solid darkcyan; 
 }
 
 .tl-item {
+    flex: 1 1 auto;
     position: relative;
     width: 20%;
-    height: 100vh;
     overflow: hidden;
     transition: width 0.5s ease;
+}
+
+.tl-item::before {
+    content: attr(data-order);
+    position: absolute;
 }
 
 .tl-item:hover {
@@ -104,7 +156,6 @@ a {
 .tl-bg {
     position: absolute;
     width: 100%; height: 100%;
-    top: 0; left: 0;
     background-size: cover;
     background-position: center;
 }
@@ -134,10 +185,11 @@ footer {
     left: 0;
     bottom: 0;
     text-align: center;
-    padding: 4em 0 4em 0;
+    padding: 5em 0 4em 0;
     position: relative;
     font-family: Arial, Helvetica, sans-serif;           
-    background: #031625;
+    /* background: #031625; */
+    background: #000;
 }
 
 #name {
@@ -149,8 +201,6 @@ footer {
 
 #copyright {
     font-size: small;
-    font-style: italic;
+    font-style: normal;
     color: #8E9599;
-
 }
-

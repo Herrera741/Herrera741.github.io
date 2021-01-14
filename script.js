@@ -1,14 +1,14 @@
-window.addEventListener("DOMContentLoaded", getSeqOrder);
+window.addEventListener("DOMContentLoaded", getYearOrder);
 
 // current list of movies in chronological order by default 
 let MOVIES = [
     {chronNum: 0, year: "2011", title: "Captain America: The First Avenger", path: "/images/cap-america-bg.jpg"},
     {chronNum: 1, year: "2008", title: "Iron Man", path: "/images/iron-man-bg.jpg"},
     {chronNum: 2, year: "2011", title: "Thor", path: "/images/thor-bg.jpg"},
-    {chronNum: 3, year: "2013", title: "Iron Man 3", path: "/images/iron-man-3-bg.jpg"},
-    {chronNum: 4, year: "2014", title: "Guardians of the Galaxy", path: "/images/gotg-bg.jpg"},
+    // {chronNum: 3, year: "2013", title: "Iron Man 3", path: "/images/iron-man-3-bg.jpg"},
+    // {chronNum: 4, year: "2014", title: "Guardians of the Galaxy", path: "/images/gotg-bg.jpg"},
     {chronNum: 5, year: "2016", title: "Doctor Strange", path: "/images/doc-strange-bg.jpg"},
-    {chronNum: 6, year: "2017", title: "Spider-Man: Homecoming", path: "/images/spiderman-bg.jpg"},
+    {chronNum: 6, year: "2017", title: "Spider-Man: Homecoming", path: "/images/spiderman-bg-v3.jpg"},
     {chronNum: 7, year: "2018", title: "Black Panther", path: "/images/black-panther-bg.jpg"},
     {chronNum: 8, year: "2018", title: "Ant-Man and The Wasp", path: "/images/antman-wasp-bg.jpg"},
     {chronNum: 9, year: "2019", title: "Avengers: Endgame", path: "/images/avengers-endgame-bg.jpg"}
@@ -85,14 +85,14 @@ let updateMovieValues = (movies) => {
 
         // update title value
         let title = item.querySelector(".movie-title");
-        title.innerHTML = movies[i]["title"];
+        // title.innerHTML = movies[i]["title"];
 
         TIMELINE_CONTAINER.appendChild(item);
     }
 }
 
 // get sequential order of movies
-function getSeqOrder() {
+function getYearOrder() {
     clearInnerContent(TIMELINE_CONTAINER);
     // sort movies by year   
     let movies = insertionSort([...MOVIES], "year");
@@ -107,7 +107,7 @@ function getChronOrder() {
 }
 
 // get alphabetical order of movies
-function getAlphaOrder() {
+function getTitleOrder() {
     clearInnerContent(TIMELINE_CONTAINER);
 
     // sort MOVIES list in sequential order   
@@ -117,10 +117,10 @@ function getAlphaOrder() {
 }
 
 // button access variables
-const SEQ_BTN = document.querySelector("#seq-btn");
+const YEAR_BTN = document.querySelector("#year-btn");
 const CHRON_BTN = document.querySelector("#chron-btn");
-const ALPHA_BTN = document.querySelector("#alpha-btn");
+const TITLE_BTN = document.querySelector("#title-btn");
 
-SEQ_BTN.addEventListener("click", getSeqOrder);
+YEAR_BTN.addEventListener("click", getYearOrder);
 CHRON_BTN.addEventListener("click", getChronOrder);
-ALPHA_BTN.addEventListener("click", getAlphaOrder);
+TITLE_BTN.addEventListener("click", getTitleOrder);

@@ -7,24 +7,29 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="primary-container">
-        <section class="hero-banner" id="overlay">
-            <div id="hero-title-box">
-                <div id="hero-title">
-                    <h1>MARVEL Film</h1>
-                    <h2>Timeline</h2>
-                </div>
-                <button class="btn" id="seq-btn">Sequential</button>
-                <button class="btn" id="chron-btn">Chronological</button>
-                <button class="btn" id="alpha-btn">Alphabetical</button>
+    <section id="body-container">
+        <header class="header-container">
+            <div id="flex-container">
+                <section class="title-container">
+                    <div id="left-item">MARVEL</div>
+                    <div id="right-item">
+                        <div id="top-right-top">MCU</div>
+                        <div id="top-right-middle">FILM</div>
+                        <div id="top-right-bottom">TIMELINE</div>
+                    </div>
+                </section>
+                <section class="flex-buttons">
+                    <button class="button" id="year-btn">Year</button>
+                    <button class="button" id="chron-btn">Chronological</button>
+                    <button class="button" id="title-btn">Title</button>
+                </section>
             </div>
-        </section>
-        <section class="timeline-container">
-        </section>
-    </div>
-    <footer>
+        </header>
+        <section class="timeline-container"></section>
+    </section>
+    <footer id="footer-container">
         <p id="name"> SERGIO HERRERA</p>
-        <p id="copyright">&copy 2021 MCU Timeline. All rights reserved.</p>
+        <p id="copyright">&copy 2021 MCU Film Timeline. All rights reserved.</p>
     </footer>
 </body>
 <script type="text/javascript" src="/script.js"></script>
