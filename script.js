@@ -3,15 +3,21 @@ window.addEventListener("DOMContentLoaded", getYearOrder);
 // current list of movies in chronological order by default 
 let MOVIES = [
     {chronNum: 0, year: "2011", title: "Captain America: The First Avenger", path: "/images/cap-america-bg.jpg"},
-    {chronNum: 1, year: "2008", title: "Iron Man", path: "/images/iron-man-bg.jpg"},
-    {chronNum: 2, year: "2011", title: "Thor", path: "/images/thor-bg.jpg"},
-    // {chronNum: 3, year: "2013", title: "Iron Man 3", path: "/images/iron-man-3-bg.jpg"},
-    // {chronNum: 4, year: "2014", title: "Guardians of the Galaxy", path: "/images/gotg-bg.jpg"},
-    {chronNum: 5, year: "2016", title: "Doctor Strange", path: "/images/doc-strange-bg.jpg"},
-    {chronNum: 6, year: "2017", title: "Spider-Man: Homecoming", path: "/images/spiderman-bg-v3.jpg"},
-    {chronNum: 7, year: "2018", title: "Black Panther", path: "/images/black-panther-bg.jpg"},
-    {chronNum: 8, year: "2018", title: "Ant-Man and The Wasp", path: "/images/antman-wasp-bg.jpg"},
-    {chronNum: 9, year: "2019", title: "Avengers: Endgame", path: "/images/avengers-endgame-bg.jpg"}
+    {chronNum: 1, year: "2011", title: "Captain Marvel", path: "/images/cap-marvel-bg.jpg"},
+    {chronNum: 2, year: "2008", title: "Iron Man", path: "/images/iron-man-bg.jpg"},
+    {chronNum: 3, year: "2010", title: "Iron Man 2", path: "/images/iron-man-2-bg-v2.jpg"},
+    {chronNum: 4, year: "2008", title: "The Incredible Hulk", path: "/images/incredible-hulk-bg-v2.jpg"},
+    // {chronNum: 5, year: "2011", title: "Thor", path: "/images/thor-bg.jpg"},
+    {chronNum: 6, year: "2012", title: "The Avengers", path: "/images/avengers-bg-v2.jpg"},
+    // {chronNum: 7, year: "2013", title: "Iron Man 3", path: "/images/iron-man-3-bg.jpg"},
+    // {chronNum: 8, year: "2014", title: "Guardians of the Galaxy", path: "/images/gotg-bg.jpg"},
+    // {chronNum: 9, year: "2017", title: "Guardians of the Galaxy Vol.2", path: "/images/gotg-vol2-bg.jpg"},
+    // {chronNum: 10, year: "2016", title: "Doctor Strange", path: "/images/doc-strange-bg.jpg"},
+    {chronNum: 11, year: "2017", title: "Spider-Man: Homecoming", path: "/images/spiderman-bg-v3.jpg"},
+    // {chronNum: 12, year: "2018", title: "Black Panther", path: "/images/black-panther-bg.jpg"},
+    // {chronNum: 13, year: "2018", title: "Ant-Man and The Wasp", path: "/images/antman-wasp-bg.jpg"},
+    // {chronNum: 14, year: "2019", title: "Avengers: Endgame", path: "/images/avengers-endgame-bg.jpg"},
+    {chronNum: 15, year: "2019", title: "Spiderman: Far From Home", path: "/images/spiderman-ffh-bg-v2.jpg"}
 ]
 
 // movie object constructor
