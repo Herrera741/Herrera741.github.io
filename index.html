@@ -19,20 +19,20 @@
                     </div>
                 </section>
                 <section class="flex-buttons">
-                    <button class="button" id="year-btn">Year</button>
-                    <button class="button" id="chron-btn">Chronological</button>
-                    <button class="button" id="title-btn">Title</button>
+                    <button class="button" id="year-btn" onclick="getYearOrder();">Year</button>
+                    <button class="button" id="chron-btn" onclick="getChronOrder();">Chronological</button>
+                    <button class="button" id="title-btn" onclick="getTitleOrder();">Title</button>
                 </section>
             </div>
         </header>
         
         <section class="timeline-container"></section>
-        <a href="" class="prev" onclick="newSlide(-1)">&#10094;</a>
-        <a href="" class="next" onclick="newSlide(1)">&#10095;</a>
+        <button class="arrow-btn" id="prev-btn" onclick="prevSlide();">&#10094;</button>
+        <button class="arrow-btn" id="next-btn" onclick="nextSlide();">&#10095;</button>
         <div class="navigation"></div>
     </section>
     <footer id="footer-container">
-        <p id="name"> SERGIO HERRERA</p>
+        <p id="name">SERGIO HERRERA</p>
         <p id="copyright">&copy 2021 MCU Film Timeline. All rights reserved.</p>
     </footer>
 </body>

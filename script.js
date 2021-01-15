@@ -1,24 +1,40 @@
-window.addEventListener("DOMContentLoaded", getYearOrder);
-
-// current list of movies in chronological order by default 
-let MOVIES = [
+/*==========CONSTANTS==========*/
+// movies in chronological order by default 
+const MOVIES = [
     {chronNum: 0, year: "2011", title: "Captain America: The First Avenger", path: "/images/cap-america-bg.jpg"},
     {chronNum: 1, year: "2011", title: "Captain Marvel", path: "/images/cap-marvel-bg.jpg"},
     {chronNum: 2, year: "2008", title: "Iron Man", path: "/images/iron-man-bg.jpg"},
     {chronNum: 3, year: "2010", title: "Iron Man 2", path: "/images/iron-man-2-bg-v2.jpg"},
     {chronNum: 4, year: "2008", title: "The Incredible Hulk", path: "/images/incredible-hulk-bg-v2.jpg"},
-    // {chronNum: 5, year: "2011", title: "Thor", path: "/images/thor-bg.jpg"},
+    {chronNum: 5, year: "2011", title: "Thor", path: "/images/thor-bg.jpg"},
     {chronNum: 6, year: "2012", title: "The Avengers", path: "/images/avengers-bg-v2.jpg"},
-    // {chronNum: 7, year: "2013", title: "Iron Man 3", path: "/images/iron-man-3-bg.jpg"},
-    // {chronNum: 8, year: "2014", title: "Guardians of the Galaxy", path: "/images/gotg-bg.jpg"},
-    // {chronNum: 9, year: "2017", title: "Guardians of the Galaxy Vol.2", path: "/images/gotg-vol2-bg.jpg"},
-    // {chronNum: 10, year: "2016", title: "Doctor Strange", path: "/images/doc-strange-bg.jpg"},
-    {chronNum: 11, year: "2017", title: "Spider-Man: Homecoming", path: "/images/spiderman-bg-v3.jpg"},
-    // {chronNum: 12, year: "2018", title: "Black Panther", path: "/images/black-panther-bg.jpg"},
-    // {chronNum: 13, year: "2018", title: "Ant-Man and The Wasp", path: "/images/antman-wasp-bg.jpg"},
-    // {chronNum: 14, year: "2019", title: "Avengers: Endgame", path: "/images/avengers-endgame-bg.jpg"},
+    {chronNum: 7, year: "2013", title: "Iron Man 3", path: "/images/iron-man-3-bg.jpg"},
+    {chronNum: 8, year: "2014", title: "Guardians of the Galaxy", path: "/images/gotg-bg.jpg"},
+    {chronNum: 9, year: "2017", title: "Guardians of the Galaxy Vol.2", path: "/images/gotg-vol2-bg.jpg"},
+    {chronNum: 10, year: "2016", title: "Doctor Strange", path: "/images/doc-strange-bg.jpg"},
+    {chronNum: 11, year: "2017", title: "Spider-Man: Homecoming", path: "/images/spiderman-bg-v2.jpg"},
+    {chronNum: 12, year: "2018", title: "Black Panther", path: "/images/black-panther-bg.jpg"},
+    {chronNum: 13, year: "2018", title: "Ant-Man and The Wasp", path: "/images/antman-wasp-bg.jpg"},
+    {chronNum: 14, year: "2019", title: "Avengers: Endgame", path: "/images/avengers-endgame-bg.jpg"},
     {chronNum: 15, year: "2019", title: "Spiderman: Far From Home", path: "/images/spiderman-ffh-bg-v2.jpg"}
 ]
+
+const BATCH = 6; // number of movies per screen
+const TIMELINE_CONTAINER = document.querySelector(".timeline-container"); // timeline container holding movie items
+
+
+let batchIndex = 0; // index to keep track of movies batch current viewing
+let movieBatches = []; // array to hold movie batches
+
+
+// return array of batches of movies split up by batch count
+function getMovieBatches(movies) {
+    result = []
+    for (var index = 0; index < movies.length; index += BATCH) {
+        result.push(movies.slice(index, BATCH + index));
+    }
+    return result;
+}
 
 // movie object constructor
 function Movie(chronNum, year, title, path) {
@@ -59,7 +75,7 @@ function clearInnerContent(element) {
 }
 
 // sort movies by year
-let insertionSort = (movies, value) => {
+function insertionSort(movies, value) {
     for (let i = 1; i < movies.length; i++) {
         let key = movies[i];
         let j = i - 1;
@@ -72,10 +88,35 @@ let insertionSort = (movies, value) => {
     return movies;
 }
 
-// timeline container holding movie items
-const TIMELINE_CONTAINER = document.querySelector(".timeline-container");
+function hidePrevButton() {
+    let prevBtn = document.querySelector("#prev-btn");
+    prevBtn.style.visibility = "hidden";
+}
 
-let updateMovieValues = (movies) => {
+function showPrevButton() {
+    let prevBtn = document.querySelector("#prev-btn");
+    prevBtn.style.visibility = "visible";
+}
+
+function hideNextButton() {
+    let nextBtn = document.querySelector("#next-btn");
+    nextBtn.style.visibility = "hidden";
+}
+
+function showNextButton() {
+    let nextBtn = document.querySelector("#next-btn");
+    nextBtn.style.visibility = "visible";
+}
+
+function resetIndex() {
+    batchIndex = 0;
+}
+
+function resetMovieBatches() {
+    movieBatches.length = 0;
+}
+
+function updateMovieValues(movies) {
     for (i = 0; i < movies.length; i++) {
         // create item element to store movie values
         let item = createItemElements();
@@ -91,7 +132,6 @@ let updateMovieValues = (movies) => {
 
         // update title value
         let title = item.querySelector(".movie-title");
-        // title.innerHTML = movies[i]["title"];
 
         TIMELINE_CONTAINER.appendChild(item);
     }
@@ -100,33 +140,64 @@ let updateMovieValues = (movies) => {
 // get sequential order of movies
 function getYearOrder() {
     clearInnerContent(TIMELINE_CONTAINER);
-    // sort movies by year   
-    let movies = insertionSort([...MOVIES], "year");
-    // update container items with sorted movie values
-    updateMovieValues(movies);
+    resetIndex();
+    resetMovieBatches();
+    hidePrevButton();  
+    let moviesByYear = insertionSort([...MOVIES], "year");
+    movieBatches = getMovieBatches(moviesByYear);
+    updateMovieValues(movieBatches[batchIndex]);
 }
 
 // get chronological order of movies
 function getChronOrder() {
     clearInnerContent(TIMELINE_CONTAINER);
-    updateMovieValues(MOVIES);
+    resetIndex();
+    resetMovieBatches();
+    hidePrevButton();
+    movieBatches = getMovieBatches(MOVIES);
+    updateMovieValues(movieBatches[batchIndex]);
 }
 
 // get alphabetical order of movies
 function getTitleOrder() {
     clearInnerContent(TIMELINE_CONTAINER);
-
-    // sort MOVIES list in sequential order   
-    let movies = insertionSort([...MOVIES], "title");
-    movies.sort((a, b) => a.title.toLowerCase() > b.title.toLowerCase() ? 1:-1);
-    updateMovieValues(movies);
+    resetIndex();
+    resetMovieBatches();
+    hidePrevButton();
+    let moviesByTitle = insertionSort([...MOVIES], "title");
+    moviesByTitle.sort((a, b) => a.title.toLowerCase() > b.title.toLowerCase() ? 1:-1);
+    movieBatches = getMovieBatches(moviesByTitle);
+    updateMovieValues(movieBatches[batchIndex]);
 }
 
-// button access variables
-const YEAR_BTN = document.querySelector("#year-btn");
-const CHRON_BTN = document.querySelector("#chron-btn");
-const TITLE_BTN = document.querySelector("#title-btn");
+function prevSlide() {
+    batchIndex = batchIndex - 1;
+    clearInnerContent(TIMELINE_CONTAINER);
+    updateMovieValues(movieBatches[batchIndex]);
+    showNextButton();
+    if (batchIndex == 0) {
+        hidePrevButton();
+    } else {
+        showPrevButton();
+    }
+    console.log("index is " + batchIndex.toString());
+}
 
-YEAR_BTN.addEventListener("click", getYearOrder);
-CHRON_BTN.addEventListener("click", getChronOrder);
-TITLE_BTN.addEventListener("click", getTitleOrder);
+function nextSlide() {
+    batchIndex = batchIndex + 1;
+    clearInnerContent(TIMELINE_CONTAINER);
+    updateMovieValues(movieBatches[batchIndex]);
+    showPrevButton();
+    if (batchIndex == (movieBatches.length-1)) {
+        hideNextButton();
+    } else {
+        showNextButton();
+    }
+    console.log("index is " + batchIndex.toString());
+}
+
+window.onload = function() {
+    getYearOrder();
+};
+
+// window.addEventListener("DOMContentLoaded", getYearOrder);
