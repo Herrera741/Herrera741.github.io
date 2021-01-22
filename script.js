@@ -65,6 +65,8 @@ function createItemElements() {
     let infoElem = document.createElement("div");
     let yearElem = document.createElement("p");
     let titleElem = document.createElement("p");
+    // let prevBtn = document.createElement("button")
+    // let nextBtn = document.createElement("button")
 
     // assign class names to elements
     itemElem.classList.add("tl-item");
@@ -72,6 +74,23 @@ function createItemElements() {
     infoElem.classList.add("movie-info");
     yearElem.classList.add("movie-year");
     titleElem.classList.add("movie-title");
+    // prevBtn.classList.add("arrow-btn");
+    // nextBtn.classList.add("arrow-btn");
+
+    // // assign id's to slideshow buttons
+    // prevBtn.id = "prev-btn";
+    // nextBtn.id = "next-btn";
+
+    // // assign onclick values to slideshow buttons
+    // prevBtn.onclick = "prevSlide();";
+    // nextBtn.onclick = "nextSlide();";
+
+    // // assign inner HTML values to slideshow buttons
+    // prevBtn.innerHTML = "&#10094;";
+    // nextBtn.innerHTML = "&#10095;";
+
+    // add mobile response implementation to item
+    itemElem.setAttribute("onclick", "expandView();");
 
     // attach children nodes
     infoElem.appendChild(yearElem);
@@ -174,7 +193,7 @@ function prevSlide() {
     } else {
         showPrevButton();
     }
-    console.log("index is " + batchIndex.toString());
+    // console.log("index is " + batchIndex.toString());
 }
 
 function nextSlide() {
@@ -187,7 +206,6 @@ function nextSlide() {
     } else {
         showNextButton();
     }
-    console.log("index is " + batchIndex.toString());
 }
 
 function hidePrevButton() {
@@ -208,4 +226,10 @@ function hideNextButton() {
 function showNextButton() {
     let nextBtn = document.querySelector("#next-btn");
     nextBtn.style.visibility = "visible";
+}
+
+let itemElem = document.querySelector(".tl-item")
+
+function expandView() {
+
 }

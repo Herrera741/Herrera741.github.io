@@ -2,36 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" title="width=device-width, initial-scale=1.0">
-    <title>MCU Timeline</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Doc</title>
+    <link rel="stylesheet" href="example.css">
 </head>
 <body>
-    <section id="body-container">
-        <header class="header-container">
-            <div id="flex-container">
-                <section class="title-container">
-                    <div id="left-item">MARVEL</div>
-                    <div id="right-item">
-                        <div id="top-right-top">MCU</div>
-                        <div id="top-right-middle">FILM</div>
-                        <div id="top-right-bottom">TIMELINE</div>
-                    </div>
-                </section>
-                <section class="flex-buttons">
-                    <button class="sort-btn" id="year-btn" onclick="getYearOrder();">Year</button>
-                    <button class="sort-btn" id="chron-btn" onclick="getChronOrder();">Chronological</button>
-                    <button class="sort-btn" id="title-btn" onclick="getTitleOrder();">Title</button>
-                </section>
+    <header class="header" id="hero-banner">
+        <div class="title-container">
+            <h1 class="title-left">MARVEL</h1>
+            <div class="title-right-container">
+                <h2 class="title-right" id="right-top">MCU FILM</h2>
+                <h2 class="title-right" id="right-bottom">TIMELINE</h2>
             </div>
-        </header>
-        
-        <section class="timeline-container"></section>
-        <button class="arrow-btn" id="prev-btn" onclick="prevSlide();">&#10094;</button>
-        <button class="arrow-btn" id="next-btn" onclick="nextSlide();">&#10095;</button>
-        <div class="navigation"></div>
-    </section>
-    <footer id="footer-container">
+        </div>
+        <div class="sort-btn-container">
+            <button class="sort-btn" id="left-btn" onclick="getYearOrder();">Year</button>
+            <button class="sort-btn" id="middle-btn" onclick="getChronOrder();">Chronological</button>
+            <button class="sort-btn" id="right-btn" onclick="getTitleOrder();">Title</button> 
+        </div>
+    </header>
+    <section class="timeline-container"></section>
+    <button class="arrow-btn" id="prev-btn" onclick="prevSlide();">&#10094;</button>
+    <button class="arrow-btn" id="next-btn" onclick="nextSlide();">&#10095;</button>
+    <footer>
         <p id="name">SERGIO HERRERA</p>
         <p id="copyright">&copy 2021 MCU Film Timeline. All rights reserved.</p>
     </footer>
