@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'proxima-nova';
+    src: url(/fonts/proxima_nova_reg/proxima_nova_reg.ttf);
+}
+
+@font-face {
+    font-family: 'marvel';
+    src: url(/fonts/marvel/Marvel-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'avengeance-heroic';
+    src: url(/fonts/avengeance-heroic-avenger/AVENGEANCE\ HEROIC\ AVENGER.ttf);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #454253;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-shadow: 4px 4px 8px #000;
+    color: #FCC200;
+}
+
+.content {
+    flex: 100%;
+    text-align: center;
+    font-family: avengeance-heroic;
+}
+
+h1 {
+    line-height: 0;
+    font-size: 5rem;
+}
+
+h2 {
+    letter-spacing: 0.17rem;
+    color: #F0131E;
+}
+
+@media (min-width: 35em) {
+    h1 {
+        font-size: 6.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 38em) {
+    h1 {
+        font-size: 6.8rem;
+    }
+
+    h2 {
+        font-size: 2.3rem;
+    }
+}
