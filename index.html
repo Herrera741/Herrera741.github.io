@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sample Doc</title>
-    <link rel="stylesheet" href="example.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/e009803069.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header class="header" id="hero-banner">
+        <div class="overlay"></div>
         <div class="title-container">
             <h1 class="title-left">MARVEL</h1>
             <div class="title-right-container">
@@ -25,8 +27,19 @@
     <button class="arrow-btn" id="prev-btn" onclick="prevSlide();">&#10094;</button>
     <button class="arrow-btn" id="next-btn" onclick="nextSlide();">&#10095;</button>
     <footer>
-        <p id="name">SERGIO HERRERA</p>
-        <p id="copyright">&copy 2021 MCU Film Timeline. All rights reserved.</p>
+        <p id="footer-name">Sergio Herrera</p>
+        <div class="social">
+            <p id="social-header">Connect</p>
+            <ul>
+                <li><i class="fab fa-linkedin-in"></i></li>
+                <li><i class="fab fa-github"></i></li>
+                <li><i class="fab fa-instagram"></i></li>
+                <li><i class="fab fa-discord"></i></li>
+                <li><i class="fab fa-twitter"></i></li>
+                         
+            </ul>
+        </div>
+        <p id="copyright">Copyright &copy; 2021 MCU Film Timeline</p>
     </footer>
 </body>
 <script type="text/javascript" src="/script.js"></script>
